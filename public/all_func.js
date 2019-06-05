@@ -1,8 +1,12 @@
 //variable for .value (typing, select )
 type_form=["pa_name","pa_address","pa_offer","pa_sex","pa_13id1","pa_13id2","pa_13id3","pa_13id4",
-"pa_13id5","pa_birth","pa_blood","pa_occu"];
+"pa_13id5","pa_birth","pa_blood","pa_occu","pa_phone","pa_h_available","pa_vivisec_text","pa_drug_a_text",
+"pa_food_a_text","pa_drug_u","pa_disease"];
 //variable for checked
-check_form=["pa_headache","pa_fever"];
+check_form=["pa_headache","pa_fever","pa_vivisec","pa_drug_a","pa_food_a","pa_smoke",
+"pa_alcohol","pa_exercise"];
+//collapse
+collapse_form=["pa_vivisec","pa_drug_a","pa_food_a"];
 
 function writeNewVnHnData(){
     firebase.database().ref("Patient/vn_"+document.getElementById("vn").value).set({
@@ -62,6 +66,7 @@ function pa_m_record_init(){
         //console.log(Object.keys(ans));
         var key;
         for(key in ans){
+            console.log(key);
             if(key!='hn'){
                 if(type_form.includes(key)){
                     document.getElementById(key).value=ans[key];
@@ -71,8 +76,26 @@ function pa_m_record_init(){
                 }
             }
         }
+        for(key in collapse_form){
+            //console.log(key,ans[key]);
+            if(ans[collapse_form[key]]==true){
+                check_text(collapse_form[key].slice(3,collapse_form[key].length));
+            }
+        }
         document.getElementById("pa_m_status").innerHTML="Load Finished";
     });
+}
+
+function check_text(input){
+    console.log(input+"_info");
+    var checkBox=document.getElementById("pa_"+input);
+    var text=document.getElementById(input+"_info");
+    if(checkBox.checked){
+        text.style.display="block";
+    }
+    else{
+        text.style.display="none";
+    }
 }
 
 function pa_submit(){
@@ -85,6 +108,9 @@ function pa_submit(){
     }
     for(i=0;i<check_form.length;i++){
         pa_arg[check_form[i]]=document.getElementById(check_form[i]).checked;
+        if(collapse_form.includes(check_form[i])&& pa_arg[check_form[i]]==false){
+            pa_arg[check_form[i]+"_text"]="";
+        }
     }
     //pa_arg['hn']=sessionStorage.getItem('pa_Hn');
     ref.update(pa_arg);

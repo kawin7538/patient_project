@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1 , shrink-to-fit=no">
+        <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-database.js"></script>
+        <script src="database.js"></script>
+        <script src="all_func.js"></script>
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+        crossorigin="anonymous"></script>
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#config-web-app -->
+    </head>
+    <body>
+        <div id="login_form">
+            Login via vn and hn<br><br>
+            VN: <input type="text" name="vn" id="vn" placeholder="vn" autofocus><br>
+            <p id="vn_err"></p>
+            HN: <input type="text" name="hn" id="hn" placeholder="hn"><br>
+            <p id="hn_err"></p>
+            <button onclick="validateVnHn()">Login</button>
+            <br>
+            <br>
+            <p id="index_redirecting"></p>
+            <br><br><br>Where is vn and hn ???
+            
+        </div>
+    </body>
+</html>
