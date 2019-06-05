@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-database.js"></script>
+        <script src="database.js"></script>
+        <script src="all_func.js"></script>
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+        crossorigin="anonymous"></script>
+    </head>
+    <body onload="pa_m_record_init()">
+        <p id="show_VN"></p>
+        <p id="show_HN"></p>
+        <center>Medical Record</center><br><br>
+        <b>ข้อมูลส่วนตัว</b><br>
+        เพศ : <select id="pa_sex">
+            <option value="None">ไม่ระบุ</option>
+            <option value="Male">ชาย</option>
+            <option value="Female">หญิง</option>
+        </select><br>
+        ชื่อ-นามสกุล: <input type="text" name="pa_name" id="pa_name"><br>
+        เลขที่บัตรประชาชน: 
+        <input name="pa_13id1" type="text" id="pa_13id1" size="1" maxlength="1" style="width:15px;" />- 
+  <input name="pa_13id2" type="text" id="pa_13id2" size="3" maxlength="4" style="width:60px;" />- 
+  <input name="pa_13id3" type="text" id="pa_13id3" size="4" maxlength="5" style="width:75px;" />- 
+  <input name="pa_13id4" type="text" id="pa_13id4" size="1" maxlength="2" style="width:30px;" />- 
+  <input name="pa_13id5" type="text" id="pa_13id5" size="1" maxlength="1" style="width:15px;" /><br>
+        วันเดือนปีเกิด: <input type="text" id="pa_birth" name="pa_birth"><br>
+        หมู่เลือด: <select id="pa_blood">
+            <option value="None" selected>ไม่ระบุ</option>
+            <option value="A" >A</option>
+            <option value="B" >B</option>
+            <option value="AB" >AB</option>
+            <option value="O" >O</option>
+        </select>
+        อาชีพ: <input type="text" id="pa_occu" name="pa_occu"><br>
+        สิทธิ์การรักษา<select id="pa_offer">
+                <option value="None">ไม่มี</option>
+                <option value="30Bath">30 บาท</option>
+                <option value="Government officer">ราชการ</option>
+            </select><br>
+        ที่อยู่ : <textarea rows="4" cols="50" name="pa_address" id="pa_address"></textarea><br>
+        อาการ:<br>
+        <input type="checkbox" name="pa_headache" id="pa_headache">ปวดหัว<br>
+        <input type="checkbox" name="pa_fever" id="pa_fever">เป็นไข้<br>
+        <br><br>
+        <button onclick="pa_submit()">บันทึก</button>
+        <button onclick="logoutVnHn()">ออกจากระบบ</button>
+        <br><br>
+        <p id="pa_m_status"></p>
+    </body>
+    <script type="text/javascript"> 
+        $(function(){
+        /*  สามารถเปลี่ยนจาก citizen_ เป็นค่าที่ต้องการ  */
+            $("input[name^='pa_13id']").keyup(function(event){
+                if(event.keyCode==8){
+                    if($(this).val().length==0){
+                        $(this).prev("input").focus();  
+                    }
+                    return false;
+                }           
+                if($(this).val().length==$(this).attr("maxLength")){
+                    $(this).next("input").focus();
+                }
+            }); 
+        });
+        </script>
+</html>

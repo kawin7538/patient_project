@@ -1,0 +1,17 @@
+<html>
+    <head>
+            <!-- The core Firebase JS SDK is always required and must be listed first -->
+            <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-database.js"></script>
+            <script src="database.js"></script>
+            <script src="all_func.js"></script>
+            <!-- TODO: Add SDKs for Firebase products that you want to use
+                https://firebase.google.com/docs/web/setup#config-web-app -->
+    </head>
+    <body>
+        Create New VN and HN<br>
+            VN: <input type="text" name="vn" id="vn" placeholder="vn" required><br>
+            HN: <input type="text" name="hn" id="hn" placeholder="hn" required><br>
+            <button onclick="writeNewVnHnData()">Submit data</button>
+    </body>
+</html>
