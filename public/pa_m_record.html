@@ -7,19 +7,25 @@
         <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-database.js"></script>
         <script src="database.js"></script>
         <script src="all_func.js"></script>
-        <script
+
+        <!-- <script
         src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> -->
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+        <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     </head>
     <body onload="pa_m_record_init()">
-
+        <div class="container">
+            
         <p id="show_VN"></p>
         <p id="show_HN"></p>
         <center>Medical Record</center><br><br>
@@ -38,7 +44,11 @@
     <input name="pa_13id3" type="text" id="pa_13id3" size="4" maxlength="5" style="width:75px;" />- 
     <input name="pa_13id4" type="text" id="pa_13id4" size="1" maxlength="2" style="width:30px;" />- 
     <input name="pa_13id5" type="text" id="pa_13id5" size="1" maxlength="1" style="width:15px;" /><br>
-            วันเดือนปีเกิด: <input type="text" id="pa_birth" name="pa_birth"><br>
+            <!--วันเดือนปีเกิด: <input type="text" id="pa_birth" name="pa_birth"><br>-->
+            วันเดือนปีเกิด: <input  type="text" id="pa_birth" class="form-control" width="200" />
+    <script>
+        
+    </script>
             หมู่เลือด: <select id="pa_blood">
                 <option value="None" selected>ไม่ระบุ</option>
                 <option value="A" >A</option>
@@ -97,6 +107,7 @@
         <button onclick="logoutVnHn()">ออกจากระบบ</button>
         <br><br>
         <p id="pa_m_status"></p>
+        </div>
     </body>
     <script type="text/javascript"> 
         $(function(){
@@ -112,6 +123,9 @@
                     $(this).next("input").focus();
                 }
             });
+        });
+        $('#pa_birth').datepicker({
+            uiLibrary: 'bootstrap4'
         });
         </script>
 </html>

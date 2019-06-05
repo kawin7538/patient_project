@@ -28,7 +28,7 @@ function validateVnHn(){
         return;
     }
     document.getElementById("hn_err").innerHTML="";
-    console.log(document.getElementById("vn").value,document.getElementById("hn").value);
+    //console.log(document.getElementById("vn").value,document.getElementById("hn").value);
     var ref=firebase.database().ref("Patient");
     ref.once('value',function(snapshot){
         if(snapshot.hasChild('vn_'+document.getElementById("vn").value)){
@@ -38,7 +38,8 @@ function validateVnHn(){
                     sessionStorage.setItem("pa_Vn",document.getElementById("vn").value);
                     sessionStorage.setItem("pa_Hn",document.getElementById("hn").value);
                     document.getElementById("index_redirecting").innerHTML="Redirecting to main page";
-                    location.replace('pa_m_record.html');
+                    window.location.replace('pa_m_record.html');
+                    // location.href="pa_m_record.html";
                 }
                 else{
                     alert("มีเลข VN นี้ แต่ HN ไม่ถูกต้องครับ");
@@ -56,7 +57,7 @@ function pa_m_record_init(){
         location.replace('..');
         exit;
     }
-    console.log(type_form);
+    //console.log(type_form);
     document.getElementById("show_VN").innerHTML="VN: "+sessionStorage.getItem("pa_Vn");
     document.getElementById("show_HN").innerHTML="HN: "+sessionStorage.getItem("pa_Hn");
     document.getElementById("pa_m_status").innerHTML="Loading Latest Data";
@@ -66,7 +67,7 @@ function pa_m_record_init(){
         //console.log(Object.keys(ans));
         var key;
         for(key in ans){
-            console.log(key);
+            //console.log(key);
             if(key!='hn'){
                 if(type_form.includes(key)){
                     document.getElementById(key).value=ans[key];
@@ -87,7 +88,7 @@ function pa_m_record_init(){
 }
 
 function check_text(input){
-    console.log(input+"_info");
+    //console.log(input+"_info");
     var checkBox=document.getElementById("pa_"+input);
     var text=document.getElementById(input+"_info");
     if(checkBox.checked){

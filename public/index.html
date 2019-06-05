@@ -1,6 +1,7 @@
 <html>
 <head>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1 , shrink-to-fit=no">
     <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-database.js"></script>
@@ -55,17 +56,24 @@
 
 <body>
   <div class="container">
-	<center><img SRC="logo.png" width="10%" height="auto"/></center>
+	<center><img SRC="logo.png" width="15%" height="auto"/></center>
 	<br>
 	<br>
 	<center>	
         <div id="login_form" class="container">
             Login via VN and HN<br><br>
-            VN: <input type="text" name="vn" id="vn" placeholder="VN"><br>
+            VN: <input type="text" name="vn" id="vn" placeholder="VN" autocomplete="off"><br>
             <p id="vn_err"></p>
-            HN: <input type="text" name="hn" id="hn" placeholder="HN"><br>
+            HN: <input type="text" name="hn" id="hn" placeholder="HN" autocomplete="off"><br>
             <p id="hn_err"></p><br>
             <button onclick="validateVnHn()">Login</button>
+            <!-- <form onsubmit="validateVnHn()">
+              VN: <input type="text" name="vn" id="vn" placeholder="VN"><br>
+              <p id="vn_err"></p>
+              HN: <input type="text" name="hn" id="hn" placeholder="HN"><br>
+              <p id="hn_err"></p><br>
+              <input type="submit" value="Login"> -->
+            </form>
 	    <br>
             <p id="index_redirecting"></p>
             <br><br><br>Where is VN and HN ???
