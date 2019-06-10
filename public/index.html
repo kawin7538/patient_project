@@ -15,9 +15,9 @@
     body {
       font-family: Moderne Sans, "Times New Roman",
             Times, serif;
-      color: black;
-      background-color: #C0C0C0;
-      margin: 5%;
+      color: rgb(253, 247, 247);
+      background-color: rgb(66, 159, 247);
+      margin: 2%;
       }
       input[type=text]{
         width: 80%;
@@ -37,7 +37,7 @@
       float: center;
     }
     @media screen and (max-width: 600px) {
-      button{
+      .bb{
         width: 100%;
         margin-top: 0;
       }
@@ -45,18 +45,20 @@
         width:100%;
       }
       img{
-        width: 100px;
+        width: 150px;
       }
     }
     .container{
       width:100%;
     }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <div class="container">
-	<center><img SRC="logo.png" width="15%" height="auto"/></center>
+	<center><img SRC="logo.png" width="20%" height="auto"/></center>
 	<br>
 	<br>
 	<center>	
@@ -66,18 +68,33 @@
             <p id="vn_err"></p>
             HN: <input type="text" name="hn" id="hn" placeholder="HN" autocomplete="off"><br>
             <p id="hn_err"></p><br>
-            <button onclick="validateVnHn()">Login</button>
-            <!-- <form onsubmit="validateVnHn()">
+            <button id="myBtn" class="bb" onclick="validateVnHn()">Login</button>
+            <!-- <form id="login">
               VN: <input type="text" name="vn" id="vn" placeholder="VN"><br>
               <p id="vn_err"></p>
               HN: <input type="text" name="hn" id="hn" placeholder="HN"><br>
               <p id="hn_err"></p><br>
-              <input type="submit" value="Login"> -->
-            </form>
+              <input type="submit" value="Login">
+            </form> -->
 	    <br>
             <p id="index_redirecting"></p>
-            <br><br><br>Where is VN and HN ???
+            <!-- <button type="button" class="bb" data-toggle="modal" data-target="#exampleModalCenter">
+                Where is VN and HN ???
+            </button> -->
+            
+
+            <div class="col-sm-4">Where is VN and HN???</div>
+            <div class="col-sm-8"><img src="vnhn.png" width="20%" height="auto"></div>
+
             </div>
-        </center>
+            
+            </center>
   </div>
+  <script>
+      $(document).ready (function(){
+        $("#exampleModalCenter").hide();
+      });
+    </script>
 </body>
+
+</html>

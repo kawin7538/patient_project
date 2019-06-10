@@ -1,0 +1,26 @@
+#login_info{
+    float:center;
+    font-size:1.5rem;
+    padding:1%;
+    z-index:30;
+}
+.vivisec_info .drug_a_info .food_a_info{
+	display: none;
+}
+.custom-control-input:checked~.custom-control-label::before {
+    background-color: orangered;
+    border-color: orangered;
+}
+.datepicker.dropdown-menu{
+    background-color: #cc7300;
+}
+a{
+	color: #ffffff;
+}
+a:hover{
+	background-color: #f16f1c;
+	color: #ffffff;
+}
+.modal-content{
+	background-color: #f16f1c;
+}
